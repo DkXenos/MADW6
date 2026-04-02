@@ -31,7 +31,9 @@ struct LogbookView: View {
                                 Text("Tanggal")
                                 Spacer()
                                 Text("Total")
+                                    .frame(width: 80, alignment: .trailing)
                                 Text("Entri")
+                                    .frame(width: 50, alignment: .trailing)
                             }
                             .font(.subheadline)
                             .foregroundColor(.secondary)
@@ -50,7 +52,9 @@ struct LogbookView: View {
                                     Text(dateFormatter.string(from: date))
                                     Spacer()
                                     Text("\(totalDailyCal) kcal")
+                                        .frame(width: 80, alignment: .trailing)
                                     Text("\(dailyEntries.count)")
+                                        .frame(width: 50, alignment: .trailing)
                                 }
                                 .font(.subheadline)
                             }

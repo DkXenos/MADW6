@@ -1,5 +1,5 @@
+import SwiftUI
 import Combine
-import Foundation
 
 class AppViewModel: ObservableObject {
     @Published var userProfile: UserProfile
@@ -64,7 +64,6 @@ class AppViewModel: ObservableObject {
     }
     
     var entriesPerDay: Int {
-        let uniqueDays = Set(entries.map { Calendar.current.startOfDay(for: $0.date) }).count
         return entries.count
     }
     

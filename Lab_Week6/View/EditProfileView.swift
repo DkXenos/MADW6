@@ -79,21 +79,9 @@ struct EditProfileView: View {
         }
         .navigationTitle("Edit Profil")
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button(action: {
-                    // Save action logic
-                    saveProfile()
-                    presentationMode.wrappedValue.dismiss()
-                }) {
-                    HStack {
-                        Image(systemName: "chevron.left")
-                        Text("Simpan & Kembali")
-                    }
-                }
-            }
+        .onDisappear {
+            saveProfile()
         }
-        .navigationBarBackButtonHidden(true)
         .onAppear {
             self.name = appViewModel.userProfile.name
             self.age = "\(appViewModel.userProfile.age)"
