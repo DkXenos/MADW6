@@ -2,10 +2,10 @@ import Foundation
 
 struct DummyData {
     static let userProfile = UserProfile(
-        name: "Kevin",
-        age: 22,
+        name: "Jason Tio",
+        age: 19,
         gender: .male,
-        weight: 60,
+        weight: 70,
         height: 165
     )
     

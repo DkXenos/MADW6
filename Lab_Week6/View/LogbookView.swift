@@ -9,13 +9,21 @@ struct LogbookView: View {
                 VStack(alignment: .leading, spacing: 20) {
                     
                     // Greeting
-                    Text("Logbook Makanan")
-                        .font(.largeTitle)
-                        .bold()
-                        .padding(.horizontal)
+                    HStack {
+                        Text("Logbook Makanan")
+                            .font(.largeTitle)
+                            .bold()
+                        
+                        Spacer()
+                    }
+                    .padding(.horizontal)
                     
-                    Text("Hi, \(appViewModel.userProfile.name)!")
-                        .font(.title2)
+                    Text("Hi, \(appViewModel.userProfile.name.isEmpty ? "..." : appViewModel.userProfile.name)!")
+                        .font(.headline)
+                        .padding()
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .background(Color(.systemGray6))
+                        .clipShape(Capsule())
                         .padding(.horizontal)
                     
                     // Summary Card
@@ -31,9 +39,9 @@ struct LogbookView: View {
                                 Text("Tanggal")
                                 Spacer()
                                 Text("Total")
-                                    .frame(width: 80, alignment: .trailing)
+                                    .frame(width: 60, alignment: .trailing)
                                 Text("Entri")
-                                    .frame(width: 50, alignment: .trailing)
+                                    .frame(width: 40, alignment: .trailing)
                             }
                             .font(.subheadline)
                             .foregroundColor(.secondary)
@@ -52,9 +60,9 @@ struct LogbookView: View {
                                     Text(dateFormatter.string(from: date))
                                     Spacer()
                                     Text("\(totalDailyCal) kcal")
-                                        .frame(width: 80, alignment: .trailing)
+                                        .frame(width: 60, alignment: .trailing)
                                     Text("\(dailyEntries.count)")
-                                        .frame(width: 50, alignment: .trailing)
+                                        .frame(width: 40, alignment: .trailing)
                                 }
                                 .font(.subheadline)
                             }
@@ -70,8 +78,9 @@ struct LogbookView: View {
                         }
                     }
                     .padding()
+                    .frame(maxWidth: .infinity, alignment: .leading)
                     .background(Color(.systemGray6))
-                    .cornerRadius(12)
+                    .cornerRadius(20)
                     .padding(.horizontal)
                     
                     // List of entries
@@ -79,9 +88,9 @@ struct LogbookView: View {
                         Text("Belum ada makanan tercatat. Tekan + untuk mulai.")
                             .foregroundColor(.secondary)
                             .padding()
-                            .frame(maxWidth: .infinity)
+                            .frame(maxWidth: .infinity, alignment: .leading)
                             .background(Color(.systemGray6))
-                            .cornerRadius(12)
+                            .cornerRadius(20)
                             .padding(.horizontal)
                     } else {
                         // Grouping for the main list
