@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+//import gambar bisa tapi saya tidak masukin gambar default
 struct ContentView: View {
     @StateObject private var appViewModel = AppViewModel()
     
